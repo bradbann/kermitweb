@@ -1,0 +1,83 @@
+// Here you can easily change your sites's layout.
+// To give it a try, uncomment some of the lines below, make changes, rebuild your blog, and see how it works.
+
+//$header-font-size: 1em;
+//$header-padding-top: 1.5em;
+//$header-padding-bottom: 1.5em;
+
+//$max-width: 1350px;
+//$indented-lists: true;
+
+// Padding used for layout margins
+//$pad-min: 18px;
+//$pad-narrow: 25px;
+//$pad-medium: 35px;
+//$pad-wide: 55px;
+
+// Sidebar widths used in media queries
+//$sidebar-width-medium: 240px;
+//$sidebar-pad-medium: 15px;
+//$sidebar-pad-wide: 20px;
+//$sidebar-width-wide: 300px;
+
+
+// Louis was here
+body > header h1 {
+      padding-left:2.5em;
+      text-align:right;
+      font-style:italic; 
+      //@media only screen and (min-width: 432px) {
+      @media only screen and (min-width: 432px) {
+              text-align:left;
+      }
+      //@media only screen and (min-width: 768px) {
+      @media only screen and (min-width: 768px) {
+              padding-left:3em;
+      }
+      @media only screen and (min-width: 992px) {
+              padding-left:2em;
+      }
+}
+
+body > header h2 {
+      padding-left:5.62em;
+      text-align:right;
+      //@media only screen and (min-width: 432px) {
+      @media only screen and (min-width: 432px) {
+              text-align:left;
+              //padding-left:3.9em;
+              padding-left:5.4em;
+      }
+      //@media only screen and (min-width: 768px) {
+      @media only screen and (min-width: 768px) {
+              //padding-left:5em;
+              padding-left:6.5em;
+      }
+      @media only screen and (min-width: 992px) {
+              //padding-left:2.9em;
+              padding-left:4.4em;
+      }
+}
+
+body > header h1:before {
+      content:"";
+      position:absolute;
+      left:0em;
+      right:0;
+      top:1.5em;
+      height:110px;
+      width:110px;
+      overflow:hidden;
+      text-align:right;
+      background-image:url('../images/logo_kermit-110x110.png');
+      background-repeat:no-repeat;
+      //@media only screen and (min-width: 432px) {
+      @media only screen and (min-width: 432px) {
+              top:.32em;
+      }
+      //@media only screen and (min-width: 768px) {
+      @media only screen and (min-width: 768px) {
+              left:.75em;
+      }
+}
+

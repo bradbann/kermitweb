@@ -1,0 +1,22 @@
+---
+layout: post
+title: "about"
+date: 2012-05-09 00:30
+comments: true
+categories: 
+---
+
+KermIT integrates best of breed opensource components with a Web user interface
+and dashboard to provide a central management solution for IT systems and
+applications.
+
+KermIT relies in the backend on
+[Puppet](http://puppetlabs.com/puppet/what-is-puppet/ "Puppet")
+and
+[MCollective](http://puppetlabs.com/mcollective/introduction/ "MCollective").
+
+The license of the developments is the GPL v.3 for the generic part of the
+source code.
+
+Check the screencasts !
+
