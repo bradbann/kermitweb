@@ -1,4 +1,8 @@
 body > nav {
+  /*Louis was here*/
+  /*@include border-radius(0.4em);*/
+  @include border-bottom-left-radius(0.4em);
+  @include border-bottom-right-radius(0.4em);
   position: relative;
   background-color: $nav-bg;
   @include background($nav-bg-front, $nav-bg-back);
@@ -16,7 +20,8 @@ body > nav {
       @extend .sans;
       line-height: 1.1em;
       width: 95%;
-      @include border-radius(.5em);
+
+      @include border-radius(5em);
       @include background-clip(padding-box);
       @include box-shadow(lighten($nav-bg, 2) 0 1px);
       background-color: lighten($nav-bg, 15);

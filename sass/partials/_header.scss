@@ -1,4 +1,7 @@
 body > header {
+  /*Louis was here*/
+  @include border-top-left-radius(0.4em);
+  @include border-top-right-radius(0.4em);
   background: $header-bg;
   h1 {
     display: inline-block;
