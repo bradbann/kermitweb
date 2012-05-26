@@ -131,11 +131,17 @@ body.sidebar-footer {
   body { -webkit-text-size-adjust: auto; }
   body > header { font-size: $header-font-size * 1.2; }
   #main {
+    /*Louis was here*/
+    @include border-top-left-radius(0.4em);
+    @include border-top-right-radius(0.4em);
     @extend .group;
     padding: 0;
     margin: 0 auto;
   }
   #content {
+    /*Louis was here*/
+    @include border-top-left-radius(0.4em);
+    @include border-top-right-radius(0.4em);
     @extend .group;
     overflow: visible;
     margin-right: $sidebar-width-medium;
@@ -176,6 +182,8 @@ body.sidebar-footer {
     }
   }
   aside.sidebar {
+    /*Louis was here*/
+    @include border-top-right-radius(0.4em);
     width: $sidebar-width-wide - $sidebar-pad-wide*2;
     padding: 1.2em $sidebar-pad-wide $sidebar-pad-wide;
     .collapse-sidebar & {

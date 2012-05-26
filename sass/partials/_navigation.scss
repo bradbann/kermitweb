@@ -11,6 +11,8 @@ body > nav {
     bottom: 1px solid $nav-border-bottom; }
   padding-top: .35em;
   padding-bottom: .35em;
+  /*Louis was here*/
+  margin-bottom: 1em;
   form {
     @include background-clip(padding-box);
     margin: 0; padding: 0;
