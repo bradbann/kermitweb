@@ -1,10 +1,10 @@
 ---
-layout: post
-title: "About"
-date: 2012-05-09 00:30
-comments: false
-categories: 
-sidebar: collapse
+layout: page
+title: "about"
+comments: true
+sharing: true
+footer: true
+sidebar: true
 ---
 
 KermIT integrates best of breed opensource components with a Web user interface

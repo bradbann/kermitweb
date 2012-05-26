@@ -1,9 +1,8 @@
 ---
 layout: page
-title: "screencasts"
+title: "misc"
 comments: true
 sharing: true
 footer: true
 sidebar: false
 ---
-
