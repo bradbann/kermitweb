@@ -50,9 +50,9 @@ titlecase: true       # Converts page and post titles to titlecase
 # Louis was here
 default_asides: [custom/asides/contact.html,asides/recent_posts.html,custom/asides/sourcecode.html,custom/asides/repos.html] 
 #sidebar: collapse
-post_asides: [] 
+post_asides: [asides/recent_posts.html] 
 #page_asides: []
-#blog_index_asides: [] 
+blog_index_asides: [asides/recent_posts.html] 
 
 # Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below
 # and add an array with the asides you want to use.
