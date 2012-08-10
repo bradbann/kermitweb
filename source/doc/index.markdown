@@ -11,11 +11,13 @@ sidebar: false
 
 [Presentation (work in progress)](http://www.kermit.fr/documentation/prez/prez.pdf)
 
-[Architecture diagram](http://www.kermit.fr/documentation/bigpicture/bigpicture.png)
+[Architecture diagram](/images/bigpicture/bigpicture.png)
+
+[Get started](/doc/getstarted.html)
 
 ##Installing the packages
 
-[Using the kermit repository](http://www.kermit.fr/documentation/packages/install.html)
+[Using the kermit repository](/doc/using_the_repo.html)
 
 ##MCollective framework
 
@@ -89,7 +91,7 @@ Managed system nodes
 
 [AIX 6.1 - MCollective agent](http://www.kermit.fr/documentation/mcollective/aix_install.html)
 
-[Windows - MCollective agent](http://www.kermit.fr/documentation/mcollective/windows_install.html)
+[Windows - MCollective agent](/doc/mcollective/windows_install.html)
 
 [AIX 6.1 - Puppet client](http://www.kermit.fr/documentation/puppet/aix_install.html)
 
