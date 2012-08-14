@@ -21,6 +21,7 @@ sidebar: false
 
 ##MCollective framework
 
+### Message broker
 For the messaging backend of MCollective you can choose the ActiveMQ or RabbitMQ
 implementations of AMQP.
 
@@ -36,16 +37,32 @@ More details about this [here](http://www.kermit.fr/documentation/mcollective/cl
 
 [Installation of the message broker - rabbitmq version](http://www.kermit.fr/documentation/mcollective/broker_rabbitmq_install.html)
 
-<div class="important" markdown='1'>
-This installation procedure is fine for testing. But on a production system, you MUST secure your platform.  Read why and how below.
-</div>
+###Managed system nodes
+
+[RHEL/Centos 4, 5, 6](/doc/mcollective/rhel_install.html)
+
+[AIX 6.1 - MCollective agent](/doc/mcollective/aix_install.html)
+
+[Windows - MCollective agent](/doc/mcollective/windows_install.html)
+
+[AIX 6.1 - Puppet client](/doc/puppet/aix_install.html)
+
+[Automatic deployment](/doc/mcollective/autodeploy.html)
 
 
-[SSL configuration deployment for message signing and identification](http://www.kermit.fr/documentation/mcollective/ssl.html)
+### Management node
 
 [Configuration of a client (a management node)](/doc/mcollective/client.html)
 
+### Production
+
+<div class="important" markdown='1'>
+This installation procedure is fine for testing. But on a production system, you MUST secure your platform.  Read why and how below.
+</div>
+[SSL configuration deployment for message signing and identification](http://www.kermit.fr/documentation/mcollective/ssl.html)
+
 [Clustering of the MQ for the management of multiple datacenters](http://www.kermit.fr/documentation/mcollective/cluster.html)
+
 
 
 ##Network Operation Center (NOC)
@@ -82,19 +99,5 @@ These components can be installed on separate systems for scalability.
 ##Message Queue Subscriber
 
 [Installation](http://www.kermit.fr/documentation/mqrecv/install.html)
-
-
-Managed system nodes
---------------------
-
-[RHEL/Centos 4, 5, 6](/doc/mcollective/rhel_install.html)
-
-[AIX 6.1 - MCollective agent](/doc/mcollective/aix_install.html)
-
-[Windows - MCollective agent](/doc/mcollective/windows_install.html)
-
-[AIX 6.1 - Puppet client](/doc/puppet/aix_install.html)
-
-[Automatic deployment](/doc/mcollective/autodeploy.html)
 
 
