@@ -284,6 +284,7 @@ in the manifest above.
 
 The WebUI is left as an exercise for the reader (for now).
 
-This is what it looks like in the Kermit Web UI (development version, so far) :
+This is what it looks like in the Kermit Web UI (development version, so far) : (soon...)
 
-{% video http://www.kermit.fr/video/Kermit-Edit_Puppet_Classes_with_Hiera_backend.mp4 http://www.kermit.fr/video/Kermit-Edit_Puppet_Classes_with_Hiera_backend.jpg %}
+
+
