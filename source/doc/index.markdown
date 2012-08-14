@@ -7,7 +7,7 @@ footer: true
 sidebar: false 
 ---
 
-##The Big Picture
+## The Big Picture
 
 [Presentation (work in progress)](http://www.kermit.fr/documentation/prez/prez.pdf)
 
@@ -15,11 +15,11 @@ sidebar: false
 
 [Get started](/doc/getstarted.html)
 
-##Installing the packages
+## Installing the packages
 
 [Using the kermit repository](/doc/using_the_repo.html)
 
-##MCollective framework
+## MCollective framework
 
 ### Message broker
 For the messaging backend of MCollective you can choose the ActiveMQ or RabbitMQ
@@ -37,7 +37,7 @@ More details about this [here](http://www.kermit.fr/documentation/mcollective/cl
 
 [Installation of the message broker - rabbitmq version](http://www.kermit.fr/documentation/mcollective/broker_rabbitmq_install.html)
 
-###Managed system nodes
+### Managed system nodes
 
 [RHEL/Centos 4, 5, 6](/doc/mcollective/rhel_install.html)
 
@@ -65,7 +65,7 @@ This installation procedure is fine for testing. But on a production system, you
 
 
 
-##Network Operation Center (NOC)
+## Network Operation Center (NOC)
 
 The components are :
 
@@ -77,12 +77,11 @@ The components are :
 
 These components can be installed on separate systems for scalability.
 
-##Puppet master
+## REST server
 
-[Installation](http://www.kermit.fr/documentation/puppet/install.html)
+[Installation](/doc/restmco/install.html)
 
-
-##Web UI
+## Web UI
 
 [Installation](http://www.kermit.fr/documentation/webui/install.html)
 
@@ -90,14 +89,13 @@ These components can be installed on separate systems for scalability.
 
 [User guide](http://www.kermit.fr/documentation/webui/userguide.html)
 
-
-##REST server
-
-[Installation](/doc/restmco/install.html)
-
-
-##Message Queue Subscriber
+## Message Queue Subscriber
 
 [Installation](http://www.kermit.fr/documentation/mqrecv/install.html)
+
+
+## Puppet master
+
+[Installation](http://www.kermit.fr/documentation/puppet/install.html)
 
 
