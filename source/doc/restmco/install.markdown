@@ -90,8 +90,7 @@ Phusion Passenger.
 
 ### ON RHEL 5 x86\_64
 
-The kermit yum repository (http://www.kermit.fr/stuff/yum.repos.d/kermit.repo)
-provides passenger on RHEL 5 x86\_64 rebuilt for Ruby 1.8.6.
+The kermit yum repository (see [Using the kermit repository](/doc/using_the_repo.html)) provides passenger on RHEL 5 x86\_64 rebuilt for Ruby 1.8.6.
 
 With the kermit repository set :
 
