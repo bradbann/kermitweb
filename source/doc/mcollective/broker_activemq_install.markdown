@@ -9,8 +9,10 @@ sidebar: false
 
 You can use ActiveMQ or RabbitMQ.
 
-Note : since MCollective 2.0 it is strongly recommended to use ActiveMQ, unless
+<div class="important" markdown='1'>
+Since MCollective 2.0 it is strongly recommended to use ActiveMQ, unless
 you know exactly what you're doing.
+</div>
 
 The procedure below is for ActiveMQ or RHEL/Centos 5 and 6 x86\_64
 
