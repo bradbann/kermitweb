@@ -26,7 +26,7 @@ The WebUI is a frontend for MCollective, and MCollective uses a message broker f
 
 This is :
 
-[Install the message broker](http://www.kermit.fr/documentation/mcollective/broker_activemq_install.html)
+[Install the message broker](/doc/mcollective/broker_activemq_install.html)
 
 Or you can also use the official MCollective documentation :
 

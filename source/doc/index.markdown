@@ -32,7 +32,7 @@ on a WAN and if you don't master RabbitMQ.
 More details about this [here](http://www.kermit.fr/documentation/mcollective/cluster.html)
 
 
-[Installation of the message broker - activemq version](http://www.kermit.fr/documentation/mcollective/broker_activemq_install.html)
+[Installation of the message broker - activemq version](/doc/mcollective/broker_activemq_install.html)
 
 [Installation of the message broker - rabbitmq version](http://www.kermit.fr/documentation/mcollective/broker_rabbitmq_install.html)
 
