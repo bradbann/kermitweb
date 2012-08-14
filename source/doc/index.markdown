@@ -43,7 +43,7 @@ This installation procedure is fine for testing. But on a production system, you
 
 [SSL configuration deployment for message signing and identification](http://www.kermit.fr/documentation/mcollective/ssl.html)
 
-[Configuration of a client (a management node)](http://www.kermit.fr/documentation/mcollective/client.html)
+[Configuration of a client (a management node)](/doc/mcollective/client.html)
 
 [Clustering of the MQ for the management of multiple datacenters](http://www.kermit.fr/documentation/mcollective/cluster.html)
 
@@ -87,11 +87,14 @@ These components can be installed on separate systems for scalability.
 Managed system nodes
 --------------------
 
-[RHEL/Centos 4, 5, 6](http://www.kermit.fr/documentation/mcollective/rhel_install.html)
+[RHEL/Centos 4, 5, 6](/doc/mcollective/rhel_install.html)
 
-[AIX 6.1 - MCollective agent](http://www.kermit.fr/documentation/mcollective/aix_install.html)
+[AIX 6.1 - MCollective agent](/doc/mcollective/aix_install.html)
 
 [Windows - MCollective agent](/doc/mcollective/windows_install.html)
 
-[AIX 6.1 - Puppet client](http://www.kermit.fr/documentation/puppet/aix_install.html)
+[AIX 6.1 - Puppet client](/doc/puppet/aix_install.html)
+
+[Automatic deployment](/doc/mcollective/autodeploy.html)
+
 
