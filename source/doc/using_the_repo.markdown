@@ -13,7 +13,7 @@ We use packages from third part repositories: mainly EPEL, ELFF, Atomic, rabbitm
 
 * [EPEL](http://fedoraproject.org/wiki/EPEL)
 
-* [ELFF](http://download.elff.bravenet.com/) (ruby and ruby gems)
+* ELFF : http://download.elff.bravenet.com/ (ruby and ruby gems - link broken)
 
 * [rabbitmq.org](http://www.rabbitmq.com/server.html) (rabbitmq)
 
