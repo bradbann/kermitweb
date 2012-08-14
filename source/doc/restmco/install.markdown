@@ -15,7 +15,9 @@ You need to install the MCollective broker first and a few MCollective nodes
 
 See [Using the kermit repository](/doc/using_the_repo.html)
 
-** For RHEL 6 you also need some packages from EPEL : **
+<div class="important" markdown='1'>
+For RHEL 6 you also need some packages from EPEL
+</div>
 
 {% codeblock lang:sh %}
 rpm -Uvh http://mirrors.ircam.fr/pub/fedora/epel/6/i386/epel-release-6-7.noarch.rpm
@@ -150,21 +152,35 @@ Then
 /sbin/chkconfig httpd on 
 {% endcodeblock %}
 
+### SELinux
+
 If needed (Enforcing mode), configure SELinux :
 
 {% codeblock lang:sh %}
 yum -y install policycoreutils-python
+
+setenforce permissive
+/sbin/service httpd restart
+wget http://localhost/mcollective/no-filter/rpcutil/ping/
+
+setenforce enforcing 
+
+semanage port -a -t http_port_t -p tcp 6163
+
 grep httpd /var/log/audit/audit.log | audit2allow -M passenger
 semodule -i passenger.pp
+
 semanage fcontext -a -t httpd_sys_content_t "/var/www/restmco(/.*)?"
 restorecon -R /var/www/
 ls -ldZ /var/www/restmco/*
+
 /sbin/service httpd restart
+
 {% endcodeblock %}
 
 ### Test
 
-with MCollective set,
+With MCollective set,
 
 {% codeblock lang:sh %}
 wget http://localhost # you should get a page with 'Hello Sinatra'
