@@ -76,7 +76,7 @@ These components can be installed on separate systems for scalability.
 
 ##REST server
 
-[Installation](http://www.kermit.fr/documentation/restmco/install.html)
+[Installation](/doc/restmco/install.html)
 
 
 ##Message Queue Subscriber

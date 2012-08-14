@@ -60,7 +60,7 @@ This component is used by the WebUI to send queries and get responses to MCollec
 
 For a simple installation you can install the REST server and the WebUI on the same system.
 
-[REST server](http://www.kermit.fr/documentation/restmco/install.html)
+[REST server](/doc/restmco/install.html)
 
 When the tests of the REST server are fine, you can install the WebUI.
 
