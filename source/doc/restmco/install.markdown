@@ -66,7 +66,7 @@ sed -i "/^[[:space:]]*require[[:space:]]*'sinatra'/a\set :bind, 'localhost'" \
 The application needs a read access to `/etc/mcollective/client.cfg` :
 
 {% codeblock lang:sh %}
-chmod 644 /etc/mcollective/client.cfg`
+chmod 644 /etc/mcollective/client.cfg
 {% endcodeblock %}
 
 
@@ -151,7 +151,7 @@ If needed (i.e. with the REST server and the Web UI on separate systems),
 The application needs a read access to `/etc/mcollective/client.cfg` :
 
 {% codeblock lang:sh %}
-chmod 644 /etc/mcollective/client.cfg`
+chmod 644 /etc/mcollective/client.cfg
 {% endcodeblock %}
 
 Then
