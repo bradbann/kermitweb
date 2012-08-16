@@ -63,6 +63,12 @@ sed -i "/^[[:space:]]*require[[:space:]]*'sinatra'/a\set :bind, 'localhost'" \
     /usr/local/bin/kermit/restmco/mc-rpc-restserver.rb
 {% endcodeblock %}
 
+The application needs a read access to `/etc/mcollective/client.cfg` :
+
+{% codeblock lang:sh %}
+chmod 644 /etc/mcollective/client.cfg`
+{% endcodeblock %}
+
 
 Then :
 
@@ -142,6 +148,12 @@ If needed (i.e. with the REST server and the Web UI on separate systems),
 * modify ServerName
 * set some Apache ACL (order, deny and allow directives)
 
+The application needs a read access to `/etc/mcollective/client.cfg` :
+
+{% codeblock lang:sh %}
+chmod 644 /etc/mcollective/client.cfg`
+{% endcodeblock %}
+
 Then
 
 {% codeblock lang:sh %}
@@ -202,7 +214,6 @@ Note that if you use the mcollective ssl plugin, the service needs an access to 
 less /var/log/httpd/error_log
 {% endcodeblock %}
 
-
 You can test the service with the standalone script :
 
 {% codeblock lang:sh %}
@@ -210,3 +221,15 @@ ruby /usr/local/bin/kermit/restmco/mc-rpc-restserver.rb
 {% endcodeblock %}
 
 Stop the service `kermit-restmco` before using that.
+
+If you have problems when using passenger to run the application, try with
+passenger standalone to get debugging hints at the console.
+
+{% codeblock lang:sh %}
+yum install passenger-standalone
+cd /var/www/restmco/
+passenger start
+{% endcodeblock %}
+
+
+
