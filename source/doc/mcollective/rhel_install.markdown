@@ -103,7 +103,7 @@ plugin.yaml = /etc/mcollective/facts.yaml
 
 {% codeblock lang:sh %}
 /sbin/chkconfig mcollective on
-/etc/init.d/mcollective restart
+/sbin/service mcollective restart
 {% endcodeblock %}
 
 

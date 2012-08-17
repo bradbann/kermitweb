@@ -173,7 +173,7 @@ And restart the firewall :
 
 {% codeblock lang:sh %}
 /sbin/chkconfig activemq on
-/etc/init.d/activemq restart
+/sbin/service activemq restart
 {% endcodeblock %}
 
 
