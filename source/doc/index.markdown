@@ -83,7 +83,7 @@ These components can be installed on separate systems for scalability.
 
 ## Web UI
 
-[Installation](http://www.kermit.fr/documentation/webui/install.html)
+[Installation](/doc/webui/install.html)
 
 [Update](http://www.kermit.fr/documentation/webui/update.html)
 

@@ -66,7 +66,7 @@ When the tests of the REST server are fine, you can install the WebUI.
 
 ## 5. Install the WebUI
 
-[Web UI](http://www.kermit.fr/documentation/webui/install.html)
+[Web UI](/doc/webui/install.html)
 
 To see the nodes on the WebUI, you'll also need to install some specific MCollective agents on the managed nodes :
 
