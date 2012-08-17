@@ -8,7 +8,7 @@ sidebar: false
 ---
 
 <div class="important" markdown='1'>
-IMPORTANT: you need to install the REST server first.
+You need to install the REST server first.
 </div>
 
 <div class="important" markdown='1'>
