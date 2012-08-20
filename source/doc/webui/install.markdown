@@ -76,7 +76,13 @@ chown -R apache:apache /var/log/kermit/
 {% endcodeblock %}
 
 
-## Enable Apache at statup
+## Configure Apache
+
+You will need to use the fqdn of the machine (not `localhost`) to access the WebUI.
+
+{% codeblock lang:sh %}
+sed -i "s/changeme.fqdn/$(hostname)/g" /etc/httpd/conf.d/kermit-webui.conf
+{% endcodeblock %}
 
 If you have activemq running on the same system, you need to disable some proxy
 features :
@@ -85,7 +91,7 @@ features :
 sed -i 's/^\(.*\)$/#\1/g' /etc/httpd/conf.d/activemq-httpd.conf
 {% endcodeblock %}
 
-Enable and start Apache :
+## Enable Apache at startup and start Apache
 
 {% codeblock lang:sh %}
 /sbin/chkconfig httpd on
