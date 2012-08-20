@@ -278,7 +278,7 @@ Modify the file `/usr/share/kermit-webui/webui/settings.py` and uncomment
 {% endcodeblock %}
 
 
-Run the kermit `syncdb` operation to recreate all tables and add some default
+Run the kermit `syncdb` and `loaddata` operations to recreate all tables and add some default
 data.
 
 This command must be run in the kermit web source folder.
@@ -286,6 +286,8 @@ This command must be run in the kermit web source folder.
 {% codeblock lang:sh %}
 cd /usr/share/kermit-webui/webui
 python26 manage.py syncdb --noinput || python manage.py syncdb --noinput
+python26 manage.py loaddata basedata || python manage.py loaddata basedata
+python26 manage.py loaddata widget || python manage.py loaddata widget
 {% endcodeblock %}
 
 
