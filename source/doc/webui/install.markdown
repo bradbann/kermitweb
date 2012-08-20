@@ -26,6 +26,21 @@ It is reported to work with IE 9.
 
 It is not compatible with Firefox 3.x.
 
+Open TCP port 80 on the system where you install the WebUI
+
+With the basic RHEL/Centos 6 firewall, in `/etc/sysconfig/iptables` add this
+rules at the right place in the chain :
+
+{% codeblock sh %}
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+{% endcodeblock %}
+
+And restart the firewall :
+
+{% codeblock lang:sh %}
+/sbin/service iptables restart
+{% endcodeblock %}
+
 
 ## Install the packages
 
@@ -34,7 +49,9 @@ The packages are provided with the kermit yum repository (see [Using the kermit 
 RHEL/Centos 5 :
 
 {% codeblock lang:sh %}
-yum -y install httpd python26 python26-docutils Django redis
+yum -y install httpd Django redis uuid \
+ python26 python26-docutils ordereddict python26-httplib2 python26-redis python26-mod_wsgi \
+ django-celery django-grappelli django-guardian django-kombu django-picklefield
 
 yum -y install kermit-webui
 {% endcodeblock %}
@@ -44,9 +61,10 @@ RHEL/Centos 6 :
 # Needs EPEL in addition to the kermit repository
 rpm -Uvh http://mirrors.ircam.fr/pub/fedora/epel/6/i386/epel-release-6-7.noarch.rpm
 
-yum -y install python-docutils python-ordereddict python-httplib2 python-redis \
- python-dateutil15 python-amqplib django-picklefield django-celery \
- django-kombu mod_wsgi uuid
+yum -y install httpd Django redis uuid\
+ python-docutils python-ordereddict python-httplib2 python-redis \
+ python-dateutil15 python-amqplib mod_wsgi\
+ django-celery django-grappelli django-guardian django-kombu django-picklefield
 
 yum -y install kermit-webui
 {% endcodeblock %}
@@ -127,6 +145,20 @@ Login : admin
 Password : admin
 
 Change this at first login.
+
+## SELinux
+
+If you have SELInux in enforcing mode, you need :
+
+{% codeblock lang:sh %}
+/usr/sbin/setsebool -P httpd_tmp_exec 1
+/usr/sbin/semanage fcontext -a -t httpd_sys_content_t /usr/share/kermit-webui
+/usr/sbin/semanage fcontext -a -t httpd_sys_content_t "/var/lib/kermit/webui/db(/.*)?"
+/sbin/restorecon -R /usr/share/kermit-webui
+/sbin/restorecon -R /var/lib/kermit
+/sbin/service httpd restart
+{% endcodeblock %}
+
 
 ## Customization
 
