@@ -195,6 +195,7 @@ ls -ldZ /var/www/restmco/*
 With MCollective set,
 
 {% codeblock lang:sh %}
+cd /tmp
 wget http://localhost # you should get a page with 'Hello Sinatra'
 wget http://localhost/mcollective/no-filter/rpcutil/ping/
 wget http://localhost/mcollective/no-filter/package/status/package=bash
