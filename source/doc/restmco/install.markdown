@@ -83,6 +83,7 @@ with MCollective set,
 
 {% codeblock lang:sh %}
 netstat -ntaup | grep 4567
+cd /tmp
 wget http://localhost:4567/ # you should get a page with 'Hello Sinatra'
 wget http://localhost:4567/mcollective/no-filter/rpcutil/ping/
 wget http://localhost:4567/mcollective/no-filter/package/status/package=bash
@@ -172,7 +173,7 @@ yum -y install policycoreutils-python
 
 setenforce permissive
 /sbin/service httpd restart
-wget http://localhost/mcollective/no-filter/rpcutil/ping/
+wget http://localhost/mcollective/no-filter/rpcutil/ping/ -O /tmp/ping.html
 
 setenforce enforcing 
 
