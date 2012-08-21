@@ -87,7 +87,7 @@ These components can be installed on separate systems for scalability.
 
 [Update](http://www.kermit.fr/documentation/webui/update.html)
 
-[User guide](http://www.kermit.fr/documentation/webui/userguide.html)
+[User guide](/doc/webui/userguide.html)
 
 ## Message Queue Subscriber
 
