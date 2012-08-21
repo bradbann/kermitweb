@@ -200,6 +200,14 @@ yum -y install mcollective-plugins-agentinfo.noarch \
  mcollective-plugins-nodeinfo.noarch
 {% endcodeblock %}
 
+## Misc. packages
+
+We frequently use these ruby gems in our mcollective agents :
+
+{% codeblock lang:sh %}
+yum -y install rubygem-inifile rubygem-curb rubygem-json rubygem-xml-simple
+{% endcodeblock %}
+
 
 ## Automatic deployment
 
