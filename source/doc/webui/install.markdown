@@ -157,7 +157,10 @@ Change this at first login.
 If you have SELInux in enforcing mode, you need :
 
 {% codeblock lang:sh %}
-/usr/sbin/setsebool -P httpd_tmp_exec 1
+/usr/sbin/setsebool -P httpd_tmp_exec on
+/usr/sbin/setsebool -P httpd_can_network_connect on
+/usr/sbin/setsebool -P httpd_can_network_connect_db on
+
 /usr/sbin/semanage fcontext -a -t httpd_sys_content_t /usr/share/kermit-webui
 /usr/sbin/semanage fcontext -a -t httpd_sys_content_t "/var/lib/kermit/webui/db(/.*)?"
 /sbin/restorecon -R /usr/share/kermit-webui
