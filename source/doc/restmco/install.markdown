@@ -171,6 +171,9 @@ If needed (Enforcing mode), configure SELinux :
 {% codeblock lang:sh %}
 yum -y install policycoreutils-python
 
+rm -f /var/log/audit/audit.log
+/sbin/service auditd restart
+
 setenforce permissive
 /sbin/service httpd restart
 wget http://localhost/mcollective/no-filter/rpcutil/ping/ -O /tmp/ping.html
@@ -228,7 +231,7 @@ If you have problems when using passenger to run the application, try with
 passenger standalone to get debugging hints at the console.
 
 {% codeblock lang:sh %}
-yum install passenger-standalone
+yum -y install passenger-standalone
 cd /var/www/restmco/
 passenger start
 {% endcodeblock %}
