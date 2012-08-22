@@ -80,8 +80,8 @@ body > header h1:before {
       }
 }
 
-//.info, .success, .warning, .error, .validation {
-.important, .warning {
+//.note, .info, .success, .warning, .error, .validation {
+.note, .important, .warning {
     //border: 0px solid;
     margin: 10px 0px;
     //padding: 15px 10px 15px 70px;
@@ -89,9 +89,22 @@ body > header h1:before {
     background-repeat: no-repeat;
     background-position: 10px center;
 }
+
 .important {
     //color: #00529B;
     //background-color: #BDE5F8;
     background-image: url('../images/icons/important.png');
+}
+
+.note {
+    //color: #00529B;
+    //background-color: #BDE5F8;
+    background-image: url('../images/icons/note.png');
+}
+
+.warning {
+    //color: #00529B;
+    //background-color: #BDE5F8;
+    background-image: url('../images/icons/warning.png');
 }
 
