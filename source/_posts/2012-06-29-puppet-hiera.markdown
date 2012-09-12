@@ -11,18 +11,15 @@ categories: [Puppet, Hiera]
 
 ## The goal
 
-Be able to assign modules to nodes in Puppet with an external source of
-information.
+Be able to assign modules to nodes in Puppet with an external source of information.
 
-This will allow to programmatically assign puppet modules to nodes and
- parameters to puppet modules.
+This will allow to programmatically assign puppet modules to nodes and parameters to puppet modules.
 
 And ease the development of frontends like a web interface for this task.
 
 There are several approaches for this like External node classifiers and Hiera.
 
-I chose Hiera, which is a datastore, with a redis database backend which is easy
-to query and update.
+I chose Hiera, which is a datastore, with a redis database backend which is easy to query and update.
 
 
 ## References
@@ -90,7 +87,7 @@ rsync -avu --exclude .git* /tmp/hiera-puppet/ $modulepath/hiera-puppet
 
 Many thanks to Volcane (R.I. pienaar) and Kelsey Hightower for the debugging.
 
-It should be fine with the master branch in the future version 1.0
+It should be fine with the master branch in the version 1.0+
 
 Now you need to synchronize the custom Hiera functions into the master.
 
@@ -98,8 +95,7 @@ Just restart the puppetmaster.
 
 If needed, in addition, force the synchronisation with the following procedure.
 
-On the master, with `pluginsync=true` in the `[main]` section of the
-`puppet.conf` : 
+On the master, with `pluginsync=true` in the `[main]` section of the `puppet.conf` : 
 
 
 {% codeblock lang:sh %}
@@ -113,7 +109,7 @@ Puppet expects a configuration file `/etc/puppet/hiera.yaml`
 
 Here is a basic one :
 
-{% codeblock lang:yaml %}
+{% codeblock hiera.yaml lang:yaml %}
 :backends: 
     - yaml
 
@@ -126,8 +122,7 @@ Here is a basic one :
     :datadir: '/etc/puppet/hieradata'
 {% endcodeblock %}
 
-I set the hiera datadir in a subfolder of `/etc/puppet` to ease the backup of my
-puppet data (`/etc/puppet/{manifests,modules,hieradata}`).  
+I set the hiera datadir in a subfolder of `/etc/puppet` to ease the backup of my puppet data (`/etc/puppet/{manifests,modules,hieradata}`).  
 
 Create the "datastore" :
 
@@ -138,7 +133,7 @@ mkdir -p /etc/puppet/hieradata
 Create a basic database `/etc/puppet/hieradata/common.yaml` :
 
 
-{% codeblock lang:yaml %}
+{% codeblock common.yaml lang:yaml %}
 ---
 testmsg : Louis was here
 {% endcodeblock %}
@@ -191,39 +186,62 @@ class jboss( $up = hiera('jboss::up', true) ) {
 }
 {% endcodeblock %}
 
-`hiera('jboss::up', true)` means that puppet should failback to true if the 
- key is not found in hiera.
+`hiera('jboss::up', true)` means that puppet should failback to true if the key is not found in hiera.
 
 ## Assign modules to nodes
 
-For a puppet client named `infrmon01`, we could set in `common.yaml` :
+We can assign classes to a single node, to a subset of nodes or to all nodes as default classes.
+
+For example, in `hiera.yaml`, you can set a hierarchy :
 
 {% codeblock lang:yaml %}
-infrmon01: ['rabbitmq', 'redis', 'sensu::server']
+:hierarchy:
+    - common             # all nodes
+    - %{operatingsystem} # subset
+    - %{hostname}        # single node
+{% endcodeblock %}
+
+You can use any standard or custom facter fact in your hierarchy.
+
+With the hierarchy above, and a Red Hat puppet client named `infrmon01`, we could have three yaml files in the folder `hieradata` : 
+
+* `common.yaml`
+* `RedHat.yaml`
+* `infrmon01.yaml`
+
+In `common.yaml` we set the classes applied to all nodes :
+
+{% codeblock common.yaml lang:yaml %}
+---
+classes: ['core', 'mcollective', 'ntp', 'profile', 'ssh', 'vim']
+{% endcodeblock %}
+
+In `RedHat.yaml`, we set the classes applied to all Red Hat systems :
+{% codeblock RedHat.yaml lang:yaml %}
+---
+classes: ['yum']
+{% endcodeblock %}
+
+In `infrmon01.yaml`, we set the classes applied to this specific host :
+{% codeblock infrmon01.yaml lang:yaml %}
+---
+classes: ['rabbitmq', 'redis', 'sensu::server']
 {% endcodeblock %}
 
 Note : you need to respect a whitespace after the comma.
 
-And in your node declaration :
+And in your site manifest :
 
-{% codeblock lang:ruby %}
-node infrmon01 inherits default {
-    hiera_include($hostname,'')
-}
-{% endcodeblock %}
-
-Or even :
-
-
-{% codeblock lang:ruby %}
+{% codeblock site.pp lang:ruby %}
 node default {
-    hiera_include('defaultclasses','')
-    hiera_include($hostname,'')
+    hiera_include('classes','')
 }
 {% endcodeblock %}
 
 
 Again, `''` is the failback.
+
+`hiera_include` will merge all the arrays down the hierarchy giving you the combined classes list for each node.
 
 ## Switch the backend to redis
 
@@ -234,7 +252,7 @@ gem install hiera-redis
 
 In `/etc/puppet/hiera.yaml`, add or switch to the new backend :
 
-{% codeblock lang:yaml %}
+{% codeblock hiera.yaml lang:yaml %}
 :backends: 
     - redis
 
@@ -242,10 +260,9 @@ In `/etc/puppet/hiera.yaml`, add or switch to the new backend :
     :password: nil
 {% endcodeblock %}
 
-Note : in the version of hiera-redis that I use, I need at least a parameter in
- `:redis` to avoid a bug `undefined method 'has_key?'`
+Note : in the version of hiera-redis that I use, I need at least a parameter in `:redis` to avoid a bug `undefined method 'has_key?'`
 
-Insert your data into redis.
+## Insert your data into redis.
 
 For example, to set :
 
@@ -253,26 +270,20 @@ For example, to set :
 testmsg : Louis was here
 jbossver: 6.1.0.Final
 jboss::up: true
-infrmon01: ['rabbitmq', 'redis', 'sensu::server']
 {% endcodeblock %}
 
 you can use the redis CLI :
 
-{% codeblock lang:sh %}
+{% codeblock redis-cli lang:sh %}
 redis-cli<<'EOF'
 set common:jbossver 6.1.0.Final
 set common:testmsg "Louis was here"
 set common:jboss::up true
-sadd common:infrmon01 rabbitmq
-sadd common:infrmon01 redis
-sadd common:infrmon01 sensu::server
 keys *
-smembers common:infrmon01
 EOF
 {% endcodeblock %}
 
-Note : `true` in the yaml file was used as a boolean in puppet, but it is a
- string with redis. This is the reason of :
+Note : `true` in the yaml file was used as a boolean in puppet, but it is a string with redis. This is the reason of :
 
 {% codeblock lang:ruby %}
         ensure  => $up? { true => running, 'true' => running, default => stopped },
@@ -280,9 +291,31 @@ Note : `true` in the yaml file was used as a boolean in puppet, but it is a
 
 in the manifest above.
 
-## WebUI
+The mapping between puppet classes and nodes is done like this :
 
-The WebUI is left as an exercise for the reader (for now).
+{% codeblock redis-cli lang:sh%}
+# Default classes for all nodes
+redis-cli<<'EOF'
+sadd common:classes core
+sadd common:classes mcollective
+sadd common:classes ntp
+sadd common:classes profile
+sadd common:classes ssh
+sadd common:classes vim
+smembers common:classes
+EOF
+
+# Custom classes for the hostname infrmon01
+redis-cli<<'EOF'
+sadd infrmon01:classes rabbitmq
+sadd infrmon01:classes redis 
+sadd infrmon01:classes sensu::server
+smembers  infrmon01:classes 
+EOF
+{% endcodeblock %}
+ 
+
+## WebUI
 
 This is what it looks like in the Kermit Web UI (development version, so far) : 
 
