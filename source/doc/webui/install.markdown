@@ -152,6 +152,16 @@ Password : admin
 
 Change this at first login.
 
+## Post installation
+
+{% video http://www.kermit.fr/video/kermit-post_installation_steps.mp4 1280 720 http://www.kermit.fr/video/kermit-post_installation_steps.png %}
+
+<div class="note" markdown='1'>
+Firefox users : if you can't display the video, try <a href='http://www.kermit.fr/video/kermit-post_installation_steps.mp4'>this direct link</a> with one of these firefox plugins: Gstreamer/VLC/Divx web player/Windows media player.
+</div>
+
+
+
 ## SELinux
 
 If you have SELInux in enforcing mode, you need :
