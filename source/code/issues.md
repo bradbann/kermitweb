@@ -77,7 +77,7 @@ No issue.
 | Issue name | Label       
 |:-----------|:------------
 | Proper display of the daemon name with ps | minor
-| Rewrite URLS with vars | major
+| Rewrite URLS with json POSTs | major
 | Return json as application/json not text/html | minor
 
 
