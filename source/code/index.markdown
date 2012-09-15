@@ -7,6 +7,8 @@ footer: true
 sidebar: false 
 ---
 
+[Issues tracking](/code/issues.html)
+
 [Web UI](https://github.com/thinkfr/kermit-webui "Web UI in Django")
 
 [MCollective plugins](https://github.com/thinkfr/mcoplugins "MCollective plugins") - KermIT requires at least `nodeinfo` and `agentinfo`
