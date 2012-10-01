@@ -35,7 +35,7 @@ More details about this [here](http://www.kermit.fr/documentation/mcollective/cl
 
 [Installation of the message broker - activemq version](/doc/mcollective/broker_activemq_install.html)
 
-[Installation of the message broker - rabbitmq version](http://www.kermit.fr/documentation/mcollective/broker_rabbitmq_install.html)
+[Installation of the message broker - rabbitmq version](/doc/mcollective/broker_rabbitmq_install.html)
 
 ### Managed system nodes
 
@@ -59,7 +59,7 @@ More details about this [here](http://www.kermit.fr/documentation/mcollective/cl
 <div class="important" markdown='1'>
 This installation procedure is fine for testing. But on a production system, you MUST secure your platform.  Read why and how below.
 </div>
-[SSL configuration deployment for message signing and identification](http://www.kermit.fr/documentation/mcollective/ssl.html)
+[SSL configuration deployment for message signing and identification](/doc/mcollective/ssl.html)
 
 [Clustering of the MQ for the management of multiple datacenters](http://www.kermit.fr/documentation/mcollective/cluster.html)
 
@@ -85,17 +85,22 @@ These components can be installed on separate systems for scalability.
 
 [Installation](/doc/webui/install.html)
 
-[Update](http://www.kermit.fr/documentation/webui/update.html)
+[Update](/doc/webui/update.html)
 
 [User guide](/doc/webui/userguide.html)
 
 ## Message Queue Subscriber
 
-[Installation](http://www.kermit.fr/documentation/mqrecv/install.html)
-
+[Installation](/doc/mqrecv/install.html)
 
 ## Puppet master
 
-[Installation](http://www.kermit.fr/documentation/puppet/install.html)
+[Installation](/doc/puppet/install.html)
+
+
+## General troubleshooting
+
+[Troubleshooting](/doc/troubleshooting.html)
+
 
 
