@@ -49,7 +49,15 @@ Valid log levels = DEBUG, INFO, WARN, ERROR
 
 Celery could have one or more logs file, it depends of the configuration of the celery workers.
 
+A worker is a thread that gets a call from Kermit to MCollective and runs it.
+
+So, for example, if you have a stucked progress bar after launching an operation, you should check the celery logs.
+
+Because it could mean that KermIT cannot contact celery to get tasks results.
+
 The configuration file is `/etc/sysconfig/celeryd`
+
+If you have more than one worker, check every worker log to find the one that ran (or is still running) your operation.
 
 For example, with a configuration that sets 3 workers, you'll have :
 
@@ -59,14 +67,6 @@ For example, with a configuration that sets 3 workers, you'll have :
 /var/log/celeryw3.log
 {% endcodeblock %}
 
-
-A worker is a thread that gets a call from Kermit to MCollective and runs it.
-
-So, for example, if you have a stucked progress bar after launching an operation, you should check the celery logs.
-
-Because it could mean that KermIT cannot contact celery to get tasks results.
-
-If you have more than one worker, check every worker log to find the one that ran (or is still running) your operation.
 
 ## REST Server
 
@@ -142,6 +142,28 @@ mco schedule rpcutil ping --with-id=/el6/
 mco schedule -o -k <jobid> --with-id=/el6/
 {% endcodeblock %}
 
+
+## Summary of services
+
+On the NOC, you should have these services running :
+* httpd (WebUI and REST server with Passenger)
+* kermit-inventory (inventory queue consumer daemon )
+* kermit-log (log queue consumer daemon)
+* celeryev (task monitor)
+* celerybeat (task scheduler)
+* celeryd (task manager)
+* redis (task broker)
+
+Check the [WebUI admin guide](/doc/webui/userguide.html) for more details on how
+to monitor the status of the services and how to restart the services in the
+right order.
+
+On the managed nodes, you should have these services running :
+
+* mcollective
+* puppet (if you use puppet for deployments and configuration management) 
+* schedulerd (if you use long tasks managed asynchronously)
+ 
 
 ## And then ?
 
