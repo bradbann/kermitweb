@@ -145,7 +145,10 @@ mco schedule -o -k <jobid> --with-id=/el6/
 
 ## Summary of services
 
-On the NOC, you should have these services running :
+### On the network operations center
+
+You should have these services running :
+
 * httpd (WebUI and REST server with Passenger)
 * kermit-inventory (inventory queue consumer daemon )
 * kermit-log (log queue consumer daemon)
@@ -158,7 +161,9 @@ Check the [WebUI admin guide](/doc/webui/userguide.html) for more details on how
 to monitor the status of the services and how to restart the services in the
 right order.
 
-On the managed nodes, you should have these services running :
+### On the managed nodes
+
+You should have these services running :
 
 * mcollective
 * puppet (if you use puppet for deployments and configuration management) 
