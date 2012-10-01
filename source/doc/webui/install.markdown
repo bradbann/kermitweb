@@ -383,8 +383,3 @@ Set the logo in
 `/usr/share/kermit-webui/templates/theme/kermit/header.html`
 
 
-### SAML2 authentication
-
-Check [here](http://www.kermit.fr/documentation/webui/saml2.html)
-
-
