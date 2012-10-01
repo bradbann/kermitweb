@@ -87,7 +87,7 @@ That's for a start.
 If you want to be able to collect data like inventories and logs from the managed nodes, you should also [Install the message queue subscriber](/doc/mqrecv/install.html).
 
 
-If you want to manage nodes on multiple datacenters, you can [Make a cluster of message brokers](http://www.kermit.fr/documentation/mcollective/cluster.html).
+If you want to manage nodes on multiple datacenters, you can [Make a cluster of message brokers](/doc/mcollective/cluster.html).
 
 
 For a production environment you'll need additional security settings (see [SSL configuration deployment for message signing and identification](/doc/mcollective/ssl.html)).

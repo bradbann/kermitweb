@@ -30,7 +30,7 @@ But YOU SHOULD PICK ACTIVEMQ if you plan to have clustered AMQP broker nodes
 on a WAN and if you don't master RabbitMQ.
 </div>
 
-More details about this [here](http://www.kermit.fr/documentation/mcollective/cluster.html)
+More details about this [here](/doc/mcollective/cluster.html)
 
 
 [Installation of the message broker - activemq version](/doc/mcollective/broker_activemq_install.html)
@@ -61,7 +61,7 @@ This installation procedure is fine for testing. But on a production system, you
 </div>
 [SSL configuration deployment for message signing and identification](/doc/mcollective/ssl.html)
 
-[Clustering of the MQ for the management of multiple datacenters](http://www.kermit.fr/documentation/mcollective/cluster.html)
+[Clustering of the MQ for the management of multiple datacenters](/doc/mcollective/cluster.html)
 
 
 
