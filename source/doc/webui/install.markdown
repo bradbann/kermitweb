@@ -135,8 +135,7 @@ Before starting kermit, you should start the celery and helper services :
 /sbin/service celeryev start
 {% endcodeblock %}
 
-As an option you can use an [advanced configuration of Celery](http://www.kermit.fr/documentation/webui/celery.html)
-
+By default Kermit uses redis as a broker transport. 
 
 ## Go to the webUI
 
