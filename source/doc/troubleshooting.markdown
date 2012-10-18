@@ -21,6 +21,17 @@ Is it in-between ?
 
 To debug a problem there are differents places where you have to look in the right order.
 
+## SELinux
+
+If you have SELinux in mode enforcing on the system with the WebUI, double-check
+that you applied the SELinux configuration detailed in a specific section of
+the [WebUI installation documentation](/doc/webui/install.html)
+
+Re-apply all the `restorecon` commands listed in this doc.
+
+Install the package `setroubleshoot-server`, start or restart the service
+`auditd` and check `/var/log/{messages,audit/audit.log}`
+
 ## KermIT WebUI Log
 
 `/var/log/kermit/kermit-webui.log`

@@ -170,10 +170,25 @@ If you have SELInux in enforcing mode, you need :
 /usr/sbin/setsebool -P httpd_can_network_connect on
 /usr/sbin/setsebool -P httpd_can_network_connect_db on
 
+cat > ~/allowps.te <<'EOF'
+policy_module(allowps, 1.0.0)
+gen_require(`
+type httpd_t;
+')
+domain_read_all_domains_state(httpd_t)
+EOF
+
+cd ~
+make -f /usr/share/selinux/devel/Makefile
+semodule -i allowps.pp
+
 /usr/sbin/semanage fcontext -a -t httpd_sys_content_t /usr/share/kermit-webui
 /usr/sbin/semanage fcontext -a -t httpd_sys_content_t "/var/lib/kermit/webui/db(/.*)?"
+
 /sbin/restorecon -R /usr/share/kermit-webui
 /sbin/restorecon -R /var/lib/kermit
+/sbin/restorecon -R /etc/kermit
+
 /sbin/service httpd restart
 {% endcodeblock %}
 
@@ -326,7 +341,6 @@ sleep 5
 /sbin/service celeryev start
 /sbin/service httpd restart
 {% endcodeblock %}
---------------------------------------------------------------------------------
 
 
 #### Optimizing PostgreSQL's configuration
