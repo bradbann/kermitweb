@@ -11,10 +11,6 @@ sidebar: false
 You need to install the REST server first.
 </div>
 
-<div class="important" markdown='1'>
-Installation on RHEL/Centos 6 is a work in progress
-</div>
-
 ## Requisites
 
 You need a RHEL/Centos 5 or 6 x86\_64
