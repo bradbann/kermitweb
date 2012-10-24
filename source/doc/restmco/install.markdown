@@ -24,7 +24,6 @@ rpm -Uvh http://mirrors.ircam.fr/pub/fedora/epel/6/i386/epel-release-6-7.noarch.
 {% endcodeblock %}
 
 
-
 ## Install the packages
 
 {% codeblock lang:sh %}
@@ -38,7 +37,6 @@ yum -y install kermit-restmco
 # rubygem-sinatra
 # mcollective-common
 {% endcodeblock %}
-
 
 ## Security
 
@@ -83,10 +81,20 @@ with MCollective set,
 
 {% codeblock lang:sh %}
 netstat -ntaup | grep 4567
+
 cd /tmp
-wget http://localhost:4567/ # you should get a page with 'Hello Sinatra'
-wget http://localhost:4567/mcollective/no-filter/rpcutil/ping/
-wget http://localhost:4567/mcollective/no-filter/package/status/package=bash
+
+curl http://localhost:4567/ # you should get a page with 'Hello Sinatra'
+
+curl -X POST -d '' http://localhost:4567/mcollective/rpcutil/ping/
+
+curl -X POST -H 'content-type: application/json' \
+     -d '{"parameters":{"package":"bash"}}' \
+     http://localhost:4567/mcollective/package/status/; echo
+
+curl -X POST -H 'content-type: application/json' \
+     -d '{"filters":{"fact":["rubyversion=1.8.7"]}}' \
+     http://localhost:4567/mcollective/rpcutil/ping/; echo
 {% endcodeblock %}
 
 
@@ -117,31 +125,7 @@ yum -y install mod_passenger
 ### Web configuration for Apache
 
 {% codeblock lang:sh %}
-mkdir -p /var/www/restmco/{tmp,public}
-touch /var/www/restmco/tmp/restart.txt
-cp -f /usr/local/bin/kermit/restmco/mc-rpc-restserver.rb /var/www/restmco/
-
-cat<<EOF>/var/www/restmco/config.ru
-require 'mc-rpc-restserver'
-root_dir = File.dirname(__FILE__)
-set :environment, ENV['RACK_ENV'].to_sym
-set :root,        root_dir
-set :app_file,    File.join(root_dir, 'mc-rpc-restserver.rb')
-#set :bind, 'localhost'
-disable :run
-run Sinatra::Application
-EOF
-
-cat<<EOF>/etc/httpd/conf.d/restmco.conf
-<VirtualHost *:80>
-   ServerName localhost 
-   DocumentRoot /var/www/restmco/public
-   <Directory /var/www/restmco/public>
-      AllowOverride all              
-      Options -MultiViews           
-   </Directory>
-</VirtualHost>
-EOF
+cp /usr/local/bin/kermit/restmco/misc/restmco.conf /etc/httpd/conf.d/
 {% endcodeblock %}
 
 If needed (i.e. with the REST server and the Web UI on separate systems),
@@ -169,29 +153,35 @@ Then
 If needed (Enforcing mode), configure SELinux :
 
 {% codeblock lang:sh %}
-yum -y install policycoreutils-python
-
-rm -f /var/log/audit/audit.log
-/sbin/service auditd restart
-
-setenforce permissive
-/sbin/service httpd restart
-wget http://localhost/mcollective/no-filter/rpcutil/ping/ -O /tmp/ping.html
-
-setenforce enforcing 
+cp /usr/local/bin/kermit/restmco/misc/kermitrest.te /tmp
+cd /tmp 
+make -f /usr/share/selinux/devel/Makefile
+semodule -i kermitrest.pp
 
 semanage port -a -t http_port_t -p tcp 6163
-
-grep httpd /var/log/audit/audit.log | audit2allow -M passenger
-semodule -i passenger.pp
-
 semanage fcontext -a -t httpd_sys_content_t "/var/www/restmco(/.*)?"
+
 restorecon -R /var/www/
+restorecon -R /etc/kermit
+
 ls -ldZ /var/www/restmco/*
 
 /sbin/service httpd restart
 
 {% endcodeblock %}
+
+If you still have some problems with SELinux, troubleshoot with :
+
+{% codeblock lang:sh %}
+yum -y install setroubleshoot-server
+setenforce Permissive
+/sbin/service auditd restart
+tail /var/log/audit.log
+tail /var/log/messages
+sealert -a /var/log/audit/audit.log
+{% endcodeblock %}
+
+Try a few POST queries, see below.
 
 ### Test
 
@@ -199,9 +189,18 @@ With MCollective set,
 
 {% codeblock lang:sh %}
 cd /tmp
-wget http://localhost # you should get a page with 'Hello Sinatra'
-wget http://localhost/mcollective/no-filter/rpcutil/ping/
-wget http://localhost/mcollective/no-filter/package/status/package=bash
+
+curl http://localhost/ # you should get a page with 'Hello Sinatra'
+
+curl -X POST -d '' http://localhost/mcollective/rpcutil/ping/
+
+curl -X POST -H 'content-type: application/json' \
+     -d '{"parameters":{"package":"bash"}}' \
+     http://localhost/mcollective/package/status/; echo
+
+curl -X POST -H 'content-type: application/json' \
+     -d '{"filters":{"fact":["rubyversion=1.8.7"]}}' \
+     http://localhost/mcollective/rpcutil/ping/; echo
 {% endcodeblock %}
 
 
@@ -212,6 +211,7 @@ Note that if you use the mcollective ssl plugin, the service needs an access to 
 /etc/mcollective/server.cfg   # (plugin.ssl_server_public)
 {% endcodeblock %}
 
+If SELinux is in mode enforcing, do a `restorecon` on the key files.
 
 ## Troubleshooting
 
@@ -237,4 +237,9 @@ passenger start
 {% endcodeblock %}
 
 
+## Install with puppet
+
+Check :
+
+[https://github.com/lofic/puppet-lofic/blob/master/modules/kermitrest/manifests/init.pp](https://github.com/lofic/puppet-lofic/blob/master/modules/kermitrest/manifests/init.pp)
 
