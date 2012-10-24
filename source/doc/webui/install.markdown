@@ -166,14 +166,7 @@ If you have SELInux in enforcing mode, you need :
 /usr/sbin/setsebool -P httpd_can_network_connect on
 /usr/sbin/setsebool -P httpd_can_network_connect_db on
 
-cat > /tmp/kermitweb.te <<'EOF'
-policy_module(kermitweb, 1.0.0)
-gen_require(`
-type httpd_t;
-')
-domain_read_all_domains_state(httpd_t)
-EOF
-
+cp /etc/kermit/webui/selinux/kermitweb.te /tmp
 cd /tmp
 make -f /usr/share/selinux/devel/Makefile
 semodule -i kermitweb.pp
