@@ -166,17 +166,17 @@ If you have SELInux in enforcing mode, you need :
 /usr/sbin/setsebool -P httpd_can_network_connect on
 /usr/sbin/setsebool -P httpd_can_network_connect_db on
 
-cat > ~/allowps.te <<'EOF'
-policy_module(allowps, 1.0.0)
+cat > /tmp/kermitweb.te <<'EOF'
+policy_module(kermitweb, 1.0.0)
 gen_require(`
 type httpd_t;
 ')
 domain_read_all_domains_state(httpd_t)
 EOF
 
-cd ~
+cd /tmp
 make -f /usr/share/selinux/devel/Makefile
-semodule -i allowps.pp
+semodule -i kermitweb.pp
 
 /usr/sbin/semanage fcontext -a -t httpd_sys_content_t /usr/share/kermit-webui
 /usr/sbin/semanage fcontext -a -t httpd_sys_content_t "/var/lib/kermit/webui/db(/.*)?"
@@ -188,6 +188,18 @@ semodule -i allowps.pp
 /sbin/service httpd restart
 {% endcodeblock %}
 
+If you still have some problems with SELinux, troubleshoot with :
+
+{% codeblock lang:sh %}
+yum -y install setroubleshoot-server
+setenforce Permissive
+/sbin/service auditd restart
+tail /var/log/audit.log
+tail /var/log/messages
+sealert -a /var/log/audit/audit.log
+{% endcodeblock %}
+
+while using the WebUI.
 
 ## Customization
 
