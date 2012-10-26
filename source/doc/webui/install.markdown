@@ -55,6 +55,7 @@ yum -y install kermit-webui
 RHEL/Centos 6 :
 {% codeblock lang:sh %}
 # Needs EPEL in addition to the kermit repository
+# Not compatible with the RepoForge repository (conflicts)
 rpm -Uvh http://mirrors.ircam.fr/pub/fedora/epel/6/i386/epel-release-6-7.noarch.rpm
 
 yum -y install httpd Django redis uuid\
@@ -162,22 +163,7 @@ Firefox users : if you can't display the video, try <a href='http://www.kermit.f
 If you have SELInux in enforcing mode, you need :
 
 {% codeblock lang:sh %}
-/usr/sbin/setsebool -P httpd_tmp_exec on
-/usr/sbin/setsebool -P httpd_can_network_connect on
-/usr/sbin/setsebool -P httpd_can_network_connect_db on
-
-cp /etc/kermit/webui/selinux/kermitweb.te /tmp
-cd /tmp
-make -f /usr/share/selinux/devel/Makefile
-semodule -i kermitweb.pp
-
-/usr/sbin/semanage fcontext -a -t httpd_sys_content_t /usr/share/kermit-webui
-/usr/sbin/semanage fcontext -a -t httpd_sys_content_t "/var/lib/kermit/webui/db(/.*)?"
-
-/sbin/restorecon -R /usr/share/kermit-webui
-/sbin/restorecon -R /var/lib/kermit
-/sbin/restorecon -R /etc/kermit
-
+/usr/share/kermit-webui/selinux/applyse.sh
 /sbin/service httpd restart
 {% endcodeblock %}
 

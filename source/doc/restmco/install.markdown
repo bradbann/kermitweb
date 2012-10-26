@@ -153,21 +153,9 @@ Then
 If needed (Enforcing mode), configure SELinux :
 
 {% codeblock lang:sh %}
-cp /usr/local/bin/kermit/restmco/misc/kermitrest.te /tmp
-cd /tmp 
-make -f /usr/share/selinux/devel/Makefile
-semodule -i kermitrest.pp
-
-semanage port -a -t http_port_t -p tcp 6163
-semanage fcontext -a -t httpd_sys_content_t "/var/www/restmco(/.*)?"
-
-restorecon -R /var/www/
-restorecon -R /etc/kermit
-
-ls -ldZ /var/www/restmco/*
+/usr/local/bin/kermit/restmco/misc/applyse.sh
 
 /sbin/service httpd restart
-
 {% endcodeblock %}
 
 If you still have some problems with SELinux, troubleshoot with :
