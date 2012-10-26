@@ -9,14 +9,14 @@ sidebar: false
 
 Issues extracted from GitHub.
 
-Last updated :  2012-09-15
+Last updated :  2012-10-26
 
 
 ## documentation
 | Issue name | Label       
 |:-----------|:------------
+| Screencast : show an application deployment on a node | major
 | kermit+hiera howto | major
-| finish migration of the doc to octopress | enhancement
 | create mailing list | major
 | Screencast: show ear/war deployment | none
 | Screencast: recreate noVNC demo | none
@@ -38,16 +38,10 @@ No issue.
 ## kermit-webui
 | Issue name | Label       
 |:-----------|:------------
-| Form for %{fact}:classes (hiera)rchy mapping | minor
-| Form for common:classes (hiera)rchy mapping | enhancement
-| Dynamic groups with filter instead of node list | major
+| Get rid of Celery | enhancement
 | Linux OS provisioning | feature
 | VM provisioning on vSphere | feature
 | VM provisioning on RHEV | feature
-| SELinux compatibility | minor
-| Documentation on debugging | enhancement
-| Enhanced output for debugging | enhancement
-| Execute mco actions based on fact filters | enhancement
 
 
 ## mcoplugins
@@ -66,7 +60,6 @@ No issue.
 |:-----------|:------------
 | Resiliency | minor
 | Rewrite with mco 2.0 new queue adressing system | enhancement
-| SELinux compatibility | minor
 
 
 ## puppetclasses
@@ -77,8 +70,6 @@ No issue.
 | Issue name | Label       
 |:-----------|:------------
 | Proper display of the daemon name with ps | minor
-| Rewrite URLS with json POSTs | major
-| Return json as application/json not text/html | minor
 
 
 ## vmmgt
