@@ -66,12 +66,18 @@ yum -y install httpd Django redis uuid\
 yum -y install kermit-webui
 {% endcodeblock %}
 
-Little fix :
+## Configure Kermit
+
+After the installation you need to run the setup script in order to execute all
+necessary configuration steps
 
 {% codeblock lang:sh %}
-chown -R apache:apache /var/log/kermit/
+/usr/share/kermit-webui/setup.sh
 {% endcodeblock %}
 
+The script will read kermit-webui.cfg file information to get access to
+database. By default it will create a sqlite3 database.
+If you want to change this, check the _Customization_ section.  
 
 ## Configure Apache
 
@@ -292,21 +298,13 @@ Modify the file `/usr/share/kermit-webui/webui/settings.py` and uncomment
 {% endcodeblock %}
 
 
-Run the kermit `syncdb` and `loaddata` operations to recreate all tables and add some default
+Run the kermit `setup.sh` script to recreate all tables and add some default
 data.
 
-This command must be run in the kermit web source folder.
-
 {% codeblock lang:sh %}
-cd /usr/share/kermit-webui/webui
-python26 manage.py syncdb --noinput || python manage.py syncdb --noinput
-python26 manage.py loaddata basedata || python manage.py loaddata basedata
-python26 manage.py loaddata widget || python manage.py loaddata widget
+/usr/share/kermit-webui/setup.sh
 {% endcodeblock %}
 
-
-Call the binary `python26` on el5 or just `python` on distributions with
-a native python 2.6+.
 
 You should now have all tables and data created in your Kermit PostgreSQL
 database.

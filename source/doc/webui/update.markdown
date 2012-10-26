@@ -8,11 +8,7 @@ sidebar: false
 ---
 
 
-## Reinstall with a fresh database
-
-<div class="warning" markdown='1'>
-This will destroy all you user accounts, groups and ACLs
-</div>
+## Update 
 
 {% codeblock lang:sh %}
 #!/bin/bash
@@ -27,11 +23,7 @@ rpm=kermit-webui-x.y.z-t.noarch.rpm
 
 sleep 5
 
-rpm -e kermit-webui
-rpm -ivh $rpm
-
-mv /etc/kermit/kermit-webui.cfg.rpmsave /etc/kermit/kermit-webui.cfg
-mv /etc/httpd/conf.d/kermit-webui.conf.rpmsave /etc/httpd/conf.d/kermit-webui.conf
+rpm -Uvh $rpm
 
 /sbin/service redis restart
 /sbin/service celeryd start
@@ -45,16 +37,3 @@ sleep 5
 /sbin/chkconfig celeryev on
 /sbin/chkconfig redis on
 {% endcodeblock %}
-
-
-Then connect into the web UI with user = 'admin' and password = 'admin'
-
-In the Admin Area, 
-
-* Refresh Server Basic Info
-* Update Agents Info
-* Refresh Server Inventory
-
-And reimport your ACLs
-
-
