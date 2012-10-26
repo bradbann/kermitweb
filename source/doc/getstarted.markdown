@@ -98,5 +98,5 @@ When you're familiar with the concepts and the manual procedure, you can write y
 
 [Automatic deployment](/doc/mcollective/autodeploy.html)
 
-[Some puppet classes for automatic deployment](https://github.com/thinkfr/puppetclasses).
+[Some puppet classes for automatic deployment](https://github.com/kermitfr/puppetclasses).
 

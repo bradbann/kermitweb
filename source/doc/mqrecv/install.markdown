@@ -71,7 +71,7 @@ logqueuename = /queue/kermit.log
 
 You can get a template for `/etc/kermit/amqpqueue.cfg` here :
 
-[https://raw.github.com/thinkfr/ipc/master/tuto/mcollective-simple\_queue/standalone\_ver/amqpqueue.cfg](https://raw.github.com/thinkfr/ipc/master/tuto/mcollective-simple_queue/standalone_ver/amqpqueue.cfg)
+[https://raw.github.com/lofic/ipc/master/tuto/mcollective-simple\_queue/standalone\_ver/amqpqueue.cfg](https://raw.github.com/lofic/ipc/master/tuto/mcollective-simple_queue/standalone_ver/amqpqueue.cfg)
 
 In `amqpqueue.cfg`, set `plugin.stomp.host` to your MCollective AMQP broker.
 
@@ -141,7 +141,7 @@ Puppet resources and classes :
 {% endcodeblock %}
 
 
-You can use the templates from [https://github.com/thinkfr/puppetclasses](https://github.com/thinkfr/puppetclasses) 
+You can use the templates from [https://github.com/kermitfr/puppetclasses](https://github.com/kermitfr/puppetclasses) 
 
 But you'll have to set your own `.pem` keys and certificates.
 
@@ -177,7 +177,7 @@ ruby /usr/local/bin/kermit/queue/sendlog.rb path/to/log_file
 You can also test the communication with standalone publisher and consumer
 scripts :
 
-[https://github.com/thinkfr/ipc/tree/master/tuto/mcollective-simple\_queue/standalone\_ver](https://github.com/thinkfr/ipc/tree/master/tuto/mcollective-simple_queue/standalone_ver)
+[https://github.com/lofic/ipc/tree/master/tuto/mcollective-simple\_queue/standalone\_ver](https://github.com/lofic/ipc/tree/master/tuto/mcollective-simple_queue/standalone_ver)
 
 Stop the services `kermit-inventory` and `kermit-log` before using that.
 

@@ -121,7 +121,7 @@ You can use a puppet class for automatic deployment.
 
 For an example, check :
 
-[https://github.com/thinkfr/puppetclasses/blob/master/manifests/classes/mcollective.pp](https://github.com/thinkfr/puppetclasses/blob/master/manifests/classes/mcollective.pp)
+[https://github.com/kermitfr/puppetclasses/blob/master/manifests/classes/mcollective.pp](https://github.com/kermitfr/puppetclasses/blob/master/manifests/classes/mcollective.pp)
 
 ### Install the mcollective-client package
 

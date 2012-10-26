@@ -40,7 +40,7 @@ The official documentation is fine.
 
 ## Configuration example
 
-See : [https://github.com/thinkfr/puppetclasses](https://github.com/thinkfr/puppetclasses)
+See : [https://github.com/kermitfr/puppetclasses](https://github.com/kermitfr/puppetclasses)
 
 This configuration example deploys the Kermit repository, MCollective and the
 Kermit settings and keys. 

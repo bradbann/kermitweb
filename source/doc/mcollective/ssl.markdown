@@ -79,7 +79,7 @@ Puppet resources and classes :
 {% endcodeblock %}
 
 
-You can use the templates from [https://github.com/thinkfr/puppetclasses](https://github.com/thinkfr/puppetclasses)
+You can use the templates from [https://github.com/kermitfr/puppetclasses](https://github.com/kermitfr/puppetclasses)
 
 But you'll have to set your own `.pem` keys and certificates.
 

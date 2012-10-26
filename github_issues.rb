@@ -5,7 +5,7 @@ require 'curb'
 require 'json'
 
 F=File.open('source/code/issues.md','w')
-repo = "https://api.github.com/users/thinkfr/repos"
+repo = "https://api.github.com/users/kermitfr/repos"
 
 def mdwrite(s) 
     F.write("#{s}\n")
