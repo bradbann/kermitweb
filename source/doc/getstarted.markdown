@@ -18,7 +18,7 @@ We provide package repositories for Centos/RHEL 4,5,6.
 
 We provide packages for AIX and Windows.
 
-Unfortunately the WebUI still needs a RHEL/Centos 5. We're working on this, it should be available for RHEL6/Centos 6 soon.
+The WebUI can be installed on a RHEL/Centos 5 or 6 x86\_64.
 
 ## 2. Install a message broker
 
