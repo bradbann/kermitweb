@@ -79,6 +79,28 @@ The script will read kermit-webui.cfg file information to get access to
 database. By default it will create a sqlite3 database.
 If you want to change this, check the _Customization_ section.  
 
+## Configure the binding to the REST server
+
+The Web UI communicates with the MCollective backend via the REST server.
+
+The out-of-the-box configuration of the Web UI package assumes that the REST
+server is listening on the same host and on the default Sinatra port
+(http://localhost:4567/).
+
+If you configured the REST server on an other host or to be served by Passenger,
+you need to change the default configuration in `/etc/kermit/kermit-webui.cfg`
+
+Example for a REST server on localhost with Passenger :
+
+{% codeblock lang:ini %}
+rest_server_url=http://localhost/mcollective/
+rest_server_ping_url=http://localhost/
+rest_server_scheduler=http://localhost/schedule/
+rest_server_scheduler_status=http://localhost/schedstatus/
+rest_server_scheduler_output=http://localhost/schedoutput/
+{% endcodeblock %}
+
+ 
 ## Configure Apache
 
 You will need to use the fqdn of the machine (not `localhost`) to access the WebUI.
