@@ -9,12 +9,14 @@ sidebar: false
 
 Issues extracted from GitHub.
 
-Last updated :  2012-11-07
+Last updated :  2012-11-08
 
 
 ## kermit-webui
 | Issue name | Label       
 |:-----------|:------------
+| Dynamic look for pages to add in the main menu | enhancement
+| Hide vnc icon for non vnc vms | bug
 | Schema Migration | enhancement
 | Refactor Internal RESTServer | none
 | VM provisioning on RHEV/oVirt | feature
@@ -64,9 +66,6 @@ No issue.
 
 
 ## restmco
-| Issue name | Label       
-|:-----------|:------------
-| Log with passanger | bug
-|  Proper display of the daemon name with ps | minor
+No issue.
 
 
