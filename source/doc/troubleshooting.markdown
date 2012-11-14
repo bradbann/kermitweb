@@ -19,6 +19,14 @@ Is it when the WebUI reads the response ?
 
 Is it in-between ?
 
+Frontend :
+
+{% img /images/bigpicture/kermit-calls-front.jpg 'Kermit frontend' %}
+
+Backend :
+
+{% img /images/bigpicture/kermit-calls-back.jpg 'Kermit backend' %}
+
 To debug a problem there are differents places where you have to look in the right order.
 
 ## SELinux
