@@ -9,12 +9,19 @@ sidebar: false
 
 Issues extracted from GitHub.
 
-Last updated :  2012-11-08
+Last updated :  2012-11-19
 
 
 ## kermit-webui
 | Issue name | Label       
 |:-----------|:------------
+| Create Puppet Platform | enhancement
+| Template for service status | bug
+| Custom results template for agents | enhancement
+| Fix format in Result widget | none
+| Shown Logs in admin area | enhancement
+| Button 'clean all' on the Job History widget | enhancement
+| Button 'refresh now' for the System Status widget | enhancement
 | Dynamic look for pages to add in the main menu | enhancement
 | Hide vnc icon for non vnc vms | bug
 | Schema Migration | enhancement
@@ -22,7 +29,6 @@ Last updated :  2012-11-08
 | VM provisioning on RHEV/oVirt | feature
 | VM provisioning on vSphere | feature
 | Linux OS provisioning  | feature
-| Get rid of Celery  | enhancement
 
 
 ## kermitcuke
