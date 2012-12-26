@@ -85,6 +85,8 @@ These components can be installed on separate systems for scalability.
 
 [Installation](/doc/webui/install.html)
 
+[Integration with Puppet](/doc/webui/puppetintegration.html)
+
 [Update](/doc/webui/update.html)
 
 [User guide](/doc/webui/userguide.html)
