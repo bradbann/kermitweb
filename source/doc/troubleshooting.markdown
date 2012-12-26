@@ -52,7 +52,7 @@ This is the right place to start looking for an error.
 
 You can change the verbosity in `/etc/kermit/kermit-webui.cfg`
 
-{% codeblock lang=ini%}
+{% codeblock lang:ini%}
 [webui_logs]
 main.file=/var/log/kermit/kermit-webui.log
 main.level=INFO
