@@ -9,7 +9,7 @@ sidebar: false
 
 Issues extracted from GitHub.
 
-Last updated :  2012-11-19
+Last updated :  2012-12-08
 
 
 ## kermit-webui
@@ -46,7 +46,6 @@ No issue.
 | Screencast : show an application deployment on a node | major
 | Celery configuration  | none
 | Development doc: platforms  | none
-| Kermit+Hiera howto  | major
 
 
 ## mcoplugins
