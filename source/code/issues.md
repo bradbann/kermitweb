@@ -9,7 +9,7 @@ sidebar: false
 
 Issues extracted from GitHub.
 
-Last updated :  2012-12-08
+Last updated :  2012-12-26
 
 
 ## kermit-webui
@@ -38,12 +38,13 @@ No issue.
 ## kermitweb
 | Issue name | Label       
 |:-----------|:------------
+| Reorganize and synthetize the various prez | none
+| Finish the doc on Kermit + Puppet integration | none
 | Screencast: recreate noVNC demo  | none
 | Screencast: agent/action access rights | none
 | Screencast: server/puppet class access rights  | none
 | Screencast: deploy a mcollective agent  | none
 | Screencast: show an application instance deployment | major
-| Screencast : show an application deployment on a node | major
 | Celery configuration  | none
 | Development doc: platforms  | none
 
