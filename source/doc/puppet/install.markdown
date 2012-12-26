@@ -10,7 +10,7 @@ sidebar: false
 
 ## Install the packages
 
-With the kermit yum repository ((see: [Using the kermit repository](/doc/using_the_repo.html)) set :
+With the kermit yum repository (see: [Using the kermit repository](/doc/using_the_repo.html)) set :
 
 {% codeblock  %}
 yum -y install puppet-server 
@@ -19,6 +19,7 @@ yum -y install puppet-server
 # puppet-server
 #Installing for dependencies:
 # facter
+# hiera
 # puppet
 {% endcodeblock %}
 
