@@ -191,6 +191,7 @@ Firefox users : if you can't display the video, try <a href='http://www.kermit.f
 If you have SELInux in enforcing mode, you need :
 
 {% codeblock lang:sh %}
+yum -y install policycoreutils-python # el6, for el5 : policycoreutils
 /usr/share/kermit-webui/selinux/applyse.sh
 /sbin/service httpd restart
 {% endcodeblock %}
