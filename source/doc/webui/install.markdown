@@ -172,7 +172,7 @@ http://your\_noc\_server/
 By default the package uses the inbuilt authentication.
 
 Login : admin
-Password : admin
+Password : admin (or the password you set when you ran `/usr/share/kermit-webui/setup.sh`)
 
 Change this at first login.
 
