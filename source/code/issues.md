@@ -9,12 +9,14 @@ sidebar: false
 
 Issues extracted from GitHub.
 
-Last updated :  2012-12-26
+Last updated :  2013-05-06
 
 
 ## kermit-webui
 | Issue name | Label       
 |:-----------|:------------
+| Replace action puppetagent forceupdate with  mcollective-puppet-agent | enhancement
+| POST instead of GET for calls to agents in Django | bug
 | Create Puppet Platform | enhancement
 | Template for service status | bug
 | Custom results template for agents | enhancement

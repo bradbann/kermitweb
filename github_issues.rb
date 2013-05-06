@@ -29,11 +29,17 @@ EOT
 
 mdwrite(header)
 
-repos = JSON.parse(Curl.get(repo).body_str)
+c = Curl::Easy.http_get(repo) do |curl|
+  curl.headers["User-Agent"] = "Curl/Ruby"
+end
+repos = JSON.parse(c.body_str)
 
 repos.each do |repo|
   mdwrite("## #{repo['name']}") 
-  get_issues = Curl.get("https://api.github.com/repos/#{repo['full_name']}/issues")
+  url = "https://api.github.com/repos/#{repo['full_name']}/issues"
+  get_issues = Curl::Easy.http_get(url) do |curl|
+    curl.headers["User-Agent"] = "Curl/Ruby"
+  end
   arr_issues = []
 
   issues = JSON.parse(get_issues.body_str)
