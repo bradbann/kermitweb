@@ -56,7 +56,7 @@ RHEL/Centos 6 :
 {% codeblock lang:sh %}
 # Needs EPEL in addition to the kermit repository
 # Not compatible with the RepoForge repository (conflicts)
-rpm -Uvh http://mirrors.ircam.fr/pub/fedora/epel/6/i386/epel-release-6-7.noarch.rpm
+rpm -Uvh http://mirrors.ircam.fr/pub/fedora/epel/6/i386/epel-release-6-8.noarch.rpm
 
 yum -y install httpd Django redis uuid\
  python-docutils python-ordereddict python-httplib2 python-redis \

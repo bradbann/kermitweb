@@ -20,7 +20,7 @@ For RHEL 6 you also need some packages from EPEL
 </div>
 
 {% codeblock lang:sh %}
-rpm -Uvh http://mirrors.ircam.fr/pub/fedora/epel/6/i386/epel-release-6-7.noarch.rpm
+rpm -Uvh http://mirrors.ircam.fr/pub/fedora/epel/6/i386/epel-release-6-8.noarch.rpm
 {% endcodeblock %}
 
 
