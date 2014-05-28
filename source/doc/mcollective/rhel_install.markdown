@@ -48,9 +48,9 @@ yum -y install ruby rubygems rubygem-stomp
 
 This is required for Puppet and MCollective.
 
-el4 : custom build of Ruby 1.8.6
+el4 : custom build of Ruby 1.8.7
 
-el5 : Ruby 1.8.6 from ELFF
+el5 : Ruby 1.8.7 built by PuppetLabs
 
 el6 : standard Ruby 1.8.7 from the Linux distribution
 

@@ -9,15 +9,13 @@ sidebar: false
 
 ## Sources of the packages
 
-We use packages from third part repositories: mainly EPEL, ELFF, Atomic, rabbitmq.org.
+We use packages from third part repositories: mainly EPEL, PuppetLabs, rabbitmq.org.
 
 * [EPEL](http://fedoraproject.org/wiki/EPEL)
 
-* ELFF : http://download.elff.bravenet.com/ (ruby and ruby gems - link broken)
-
 * [rabbitmq.org](http://www.rabbitmq.com/server.html) (rabbitmq)
 
-* [people.fedoraproject.org - ~tmz](http://people.fedoraproject.org/~tmz/repo/puppet/) (puppet)
+* [Puppet Labs Package Repository](http://docs.puppetlabs.com/guides/puppetlabs_package_repositories.html) (puppet)
 
 * [repos.fedorapeople.org - peter](http://repos.fedorapeople.org/repos/peter/erlang/) (erlang R14)
 
@@ -27,7 +25,7 @@ Those packages have been collected and are provided in a single repository :
 * for convenience
 * as the consistent set of packages used during our tests
 
-They might be not up to date at the time of reading.
+So far we update the packages frequently but they might be not up to date at the time of reading.
 
 Some other packages (mcollective plugins, rabbitmq plugins, ...) are custom
 builds, referred below as custom packages.
